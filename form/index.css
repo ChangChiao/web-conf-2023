@@ -1,0 +1,7 @@
+.checkbox-color input:first-child {
+  accent-color: pink;
+}
+
+.checkbox-color input:last-child {
+  accent-color: green;
+}
