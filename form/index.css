@@ -5,3 +5,127 @@
 .checkbox-color input:last-child {
   accent-color: green;
 }
+:root {
+  --white: white;
+  --default-background-color: steelblue;
+  --default-text-color: #333;
+  --default-err-color: pink;
+  --default-err-text-color: red;
+  --default-label-text-color: orange;
+  --default-theme: brown;
+  --theme: purple;
+  --placeholder-text-color: green;
+}
+.input-set {
+  --background-color: var(--default-background-color);
+  --text-color: var(--default-text-color);
+  --border-color: var(--default-border-color);
+  --err-color: var(--default-err-color);
+  --err-text-color: var(--default-err-text-color);
+  --label-text-color: var(--default-label-text-color);
+  --theme: var(--default-theme);
+  --hover: var(--theme);
+
+  /* readyonly, disabled */
+  --background-color-disabled: var(
+    --default-background-color-disabled,
+    rgba(var(--grey-hair))
+  );
+  --text-color-disabled: var(--default-text-color-disabled, rgba(var(--bob)));
+  --border-color-disabled: var(
+    --default-border-color-disabled,
+    rgba(var(--bob))
+  );
+
+  --placeholder-text-color-normal: transparent;
+  --placeholder-text-color-active: var(
+    --default-placeholder-text-color,
+    rgba(var(--charcoal))
+  );
+  --placeholder-text-color: var(--placeholder-text-color-normal);
+}
+
+.input-set > input::-webkit-input-placeholder {
+  color: var(--placeholder-text-color);
+  transition: color 100ms ease;
+  will-change: color;
+}
+
+.input-set > input::-moz-placeholder {
+  color: var(--placeholder-text-color);
+  transition: color 100ms ease;
+  will-change: color;
+}
+
+.input-set {
+  position: relative;
+  display: block;
+}
+
+.input-set > input {
+  appearance: none;
+}
+
+.input-set > input:focus {
+  outline: 0 none;
+}
+
+/* focus */
+.input-set > input:focus {
+  --border-color: var(--hover);
+  --border-size: var(--border-size-active);
+}
+
+.input-set > input:focus::-webkit-input-placeholder {
+  --placeholder-text-color: var(--placeholder-text-color-active);
+}
+
+.input-set > input:focus::-moz-placeholder {
+  --placeholder-text-color: var(--placeholder-text-color-active);
+}
+
+.input-set > input:focus ~ .input-set__label {
+  color: var(--hover);
+  transform: translateY(-24px) scale(0.85);
+}
+
+.input-set > input:not(:placeholder-shown) ~ .input-set__label {
+  transform: translateY(-24px) scale(0.85);
+}
+
+/* invalid */
+.input-set > input:invalid ~ .input-set__em,
+.input-set > input[invalid] ~ .input-set__em {
+  --err-display: flex;
+}
+
+.input-set > input:invalid,
+.input-set > input[invalid] {
+  --border-color: var(--err-color);
+}
+
+/* inert, readonly, disabled */
+[inert] .input-set,
+.input-set:has(input[readonly]),
+.input-set:has(input[disabled]) {
+  --default-text-color: var(--text-color-disabled);
+  --default-border-color: var(--border-color-disabled);
+  --default-background-color: var(--background-color-disabled);
+}
+
+@media (hover: hover) {
+  .input-set:hover {
+    --border-color: var(--hover);
+  }
+
+  .input-set:hover > input:not(:placeholder-shown) ~ .input-set__label {
+    --label-text-color: var(--hover);
+  }
+}
+
+/* support hover */
+@media (hover: hover) {
+  .hover-box {
+    background-color: aquamarine;
+  }
+}
