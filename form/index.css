@@ -129,3 +129,17 @@
     background-color: aquamarine;
   }
 }
+
+.theme-a {
+  background: #dca;
+  color: #731;
+}
+
+/* dark mode */
+@media (prefers-color-scheme: dark) {
+  .theme-a.adaptive {
+    background: #753;
+    color: #dcb;
+    outline: 5px dashed #000;
+  }
+}
