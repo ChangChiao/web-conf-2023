@@ -143,3 +143,16 @@
     outline: 5px dashed #000;
   }
 }
+
+/* get lang by BCP47 */
+:lang(en) span {
+  color: salmon;
+}
+
+[lang="fr"].article {
+  color: #753;
+}
+
+[lang="ta"].article {
+  color: seagreen;
+}
