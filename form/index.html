@@ -31,6 +31,10 @@
       <p class="article" lang="fr">Je suis français</p>
       <p class="article" lang="ta">வணக்கம், உலகம்!</p>
     </div>
+    <div class="color-picker">
+      <input class="color-input" type="color" />
+      <button class="color-btn">show color picker</button>
+    </div>
     <br />
     <!-- not working -->
     <input type="text" autocapitalize="on" autocorrect="on" />
@@ -38,4 +42,9 @@
     <p dir="ltr">hello world!</p>
     <p dir="rtl">hello world!</p>
   </body>
+  <script>
+    document.querySelector(".color-btn").addEventListener("click", () => {
+      document.querySelector(".color-input").showPicker();
+    });
+  </script>
 </html>
