@@ -156,3 +156,10 @@
 [lang="ta"].article {
   color: seagreen;
 }
+
+/* hover */
+@media (hover: hover) {
+  .hover-block {
+    background-color: steelblue;
+  }
+}
