@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <dialog class="my-dialog">
+      <p>Greetings, one and all!</p>
+      <form method="dialog">
+        <button>OK</button>
+      </form>
+    </dialog>
+    <button class="open-btn">open dialog</button>
+  </body>
+  <script>
+    document.querySelector(".open-btn").addEventListener("click", (e) => {
+      document.querySelector(".my-dialog").showModal();
+    });
+  </script>
+</html>
