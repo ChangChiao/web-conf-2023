@@ -1,0 +1,11 @@
+.hidden-content {
+  display: none;
+}
+
+.wrap:has(#radioA:checked) .unit:nth-child(1) .hidden-content {
+  display: block;
+}
+
+.wrap:has(#radioB:checked) .unit:nth-child(2) .hidden-content {
+  display: block;
+}
