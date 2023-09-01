@@ -1,0 +1,9 @@
+[list]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  pointer-events: none;
+}
+
+[list]::-webkit-list-button {
+  opacity: 0;
+  pointer-events: none;
+}
