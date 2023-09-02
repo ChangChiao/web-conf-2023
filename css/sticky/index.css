@@ -1,0 +1,31 @@
+.container {
+  overflow: scroll;
+  margin: 50px;
+  width: 200px;
+  height: 300px;
+  border: 1px solid black;
+}
+
+.box {
+  padding: 10px;
+  margin: 0 auto;
+  text-align: center;
+  width: 80%;
+  height: 100px;
+}
+
+.red {
+  background-color: red;
+}
+
+.blue {
+  background-color: blue;
+  height: 300px;
+}
+
+.green {
+  background-color: green;
+  position: sticky;
+  top: 0;
+  left: 0;
+}
