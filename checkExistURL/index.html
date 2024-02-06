@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="open-btn">open</button>
+  </body>
+  <script type="text/javascript">
+    // Broadcast that you're opening a page.
+    localStorage.openpages = Date.now();
+    const onLocalStorageEvent = (e) => {
+      console.log("e------", e);
+      if (e.key == "openpages") {
+        // Listen if anybody else is opening the same page!
+        localStorage.page_available = Date.now();
+      }
+      if (e.key == "page_available") {
+        alert("One more page already open");
+      }
+    };
+    window.addEventListener("storage", onLocalStorageEvent, false);
+  </script>
+  <!-- <script>
+    const target = "https://medium.com/@joe-chang";
+    const isTabOpen = () => {
+      const existingTabs = window.open("", "_blank");
+      if (existingTabs) {
+        const existingUrl = existingTabs.location.href;
+        existingTabs.close();
+        return existingUrl === target;
+      }
+      return false;
+    };
+
+    const handleOpen = () => {
+      if (!isTabOpen()) {
+        window.open(target, "_blank");
+      } else {
+        console.log("相同的頁籤已存在，無法打開");
+      }
+    };
+
+    document.getElementById("open-btn").addEventListener("click", () => {
+      handleOpen();
+    });
+  </script> -->
+</html>
