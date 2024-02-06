@@ -7,11 +7,15 @@
   </head>
   <body></body>
   <script>
-    const socket = new WebSocket("ws://localhost:3000");
+    const socket = new WebSocket("ws://localhost:8082");
 
     socket.addEventListener("open", (event) => {
       console.log("Connected to WebSocket server");
       socket.send("Hello, server!");
+
+      setInterval(() => {
+        socket.send(new Date().getTime());
+      }, 3000);
     });
 
     socket.addEventListener("message", (event) => {
@@ -20,6 +24,10 @@
 
     socket.addEventListener("error", (event) => {
       console.log("error", event);
+    });
+
+    socket.addEventListener("close", () => {
+      console.log("close connect");
     });
   </script>
 </html>
