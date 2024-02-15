@@ -22,7 +22,8 @@
 
       socket.addEventListener("message", (event) => {
         console.log("Message from server:", event.data);
-        if (event.data === "ping") {
+        const msg = JSON.parse(event.data);
+        if (msg.message === "ping") {
           handlePong();
         }
       });
@@ -47,6 +48,7 @@
     };
 
     const handlePong = () => {
+      // console.log("handlePong");
       clearTimeout(timeoutId);
       timeoutId = setTimeout(() => {
         socket.send("pong");
@@ -55,6 +57,7 @@
     };
 
     const handleWsClose = () => {
+      // console.log("handleWsClose");
       clearTimeout(serverTimeoutId);
       serverTimeoutId = setTimeout(() => {
         reconnect();
