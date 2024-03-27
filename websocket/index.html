@@ -53,11 +53,11 @@
       timeoutId = setTimeout(() => {
         socket.send("pong");
       }, 3000);
-      handleWsClose();
+      handleWsCountDown();
     };
 
-    const handleWsClose = () => {
-      // console.log("handleWsClose");
+    const handleWsCountDown = () => {
+      // console.log("handleWsCountDown");
       clearTimeout(serverTimeoutId);
       serverTimeoutId = setTimeout(() => {
         reconnect();

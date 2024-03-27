@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="map">map</button>
+    <button id="arr">arr</button>
+  </body>
+  <script>
+    let arr = [];
+    let map = new Map();
+    const createFakeData = () => {
+      console.time("createFakeData");
+      for (let i = 0; i < 5000; i++) {
+        const data = {
+          name: `name-${i}`,
+          age: Math.floor(Math.random() * 100),
+          salary: Math.floor(Math.random() * 10000),
+          weight: Math.floor(Math.random() * 100),
+          height: Math.floor(Math.random() * 100),
+        };
+        arr.push({
+          id: i,
+          ...data,
+        });
+        map.set(i, data);
+      }
+      console.timeEnd("createFakeData");
+    };
+
+    // const test = () => {
+    //   let temp = [];
+    //   for (let i = 0; i < 100; i++) {
+    //     temp.push(i);
+    //   }
+    //   temp.map((item) => {
+    //     item += 1;
+    //   });
+    // };
+
+    const forLoopMap = () => {
+      console.time("forLoopMap");
+      let result = [];
+      for (let [key, value] of map) {
+        result.push(value);
+        // console.log(key, value);
+        // test();
+      }
+      console.timeEnd("forLoopMap");
+    };
+
+    const forLoopArr = () => {
+      console.time("forLoopArr");
+      let res = [];
+      for (let i = 0; i < arr.length; i++) {
+        // console.log(arr[i]);
+        res.push(arr[i]);
+        // test();
+      }
+      console.timeEnd("forLoopArr");
+    };
+
+    document.getElementById("map").addEventListener("click", () => {
+      //forLoopMap: 128.2841796875 ms
+      forLoopMap();
+    });
+
+    document.getElementById("arr").addEventListener("click", () => {
+      //   forLoopArr: 100.34814453125 ms
+      forLoopArr();
+    });
+
+    createFakeData();
+  </script>
+</html>
